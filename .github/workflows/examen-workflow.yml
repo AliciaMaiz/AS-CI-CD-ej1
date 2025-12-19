@@ -1,0 +1,26 @@
+name: examen-workflow
+
+on:
+  push:
+    branches: [ "nueva-caracteristica" ] # Se dispara al subir código a la rama 'main'
+
+jobs:
+  ejercicio1:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Bajar codigo
+        uses: actions/checkout@v5
+        
+      - name: Creacion entorno python
+        uses: actions/setup-python@v6
+        with:
+           Python-version: ‘3.10’
+           
+      - name: Instalacion 
+        run: |
+          pip install pytest 
+          pytest test.py
+          
+      - name: push de docker 
+        uses: docker/build-push-action@v6
