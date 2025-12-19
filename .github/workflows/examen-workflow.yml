@@ -15,7 +15,7 @@ jobs:
       - name: Creacion entorno python
         uses: actions/setup-python@v6
         with:
-           Python-version: ‘3.10’
+           python-version: ‘3.10’
            
       - name: Instalacion 
         run: |
